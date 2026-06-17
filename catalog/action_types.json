@@ -1,11 +1,16 @@
 {
-  "catalogVersion": "0.2.0",
+  "catalogVersion": "0.3.0",
   "actionTypes": {
     "update_record_object_action": {
       "label": "Object-specific action: update record",
       "status": "implemented",
       "template": "templates/action_update_record_template.html",
-      "snapshotContract": ["release", "main", "action", "testing"],
+      "snapshotContract": [
+        "release",
+        "main",
+        "action",
+        "testing"
+      ],
       "requiredConfig": [
         "demo.type",
         "record.object_api_name",
@@ -15,26 +20,83 @@
         "action.fields[].field",
         "action.fields[].after"
       ],
-      "renderedScenes": ["intro", "login", "record_page", "highlight_action_button", "action_modal", "save_toast", "post_save_record_state", "closing_testing_notes"],
+      "renderedScenes": [
+        "intro",
+        "login",
+        "record_page",
+        "highlight_action_button",
+        "action_modal",
+        "save_toast",
+        "post_save_record_state",
+        "closing_testing_notes"
+      ],
       "dataNotes": "Action fields are direct fields on the target object. Relationship fields are supported in header_fields and record_fields, but not as update targets."
     },
     "field_added_layout": {
       "label": "Layout change: field added above the fold",
       "status": "implemented",
       "template": "templates/dynamic_salesforce_mock_template.html",
-      "snapshotContract": ["release", "main", "side", "highlightField", "testing"],
-      "renderedScenes": ["intro", "login", "record_page", "highlight_field", "edit_picklist", "save_toast", "closing_testing_notes"]
+      "snapshotContract": [
+        "release",
+        "main",
+        "side",
+        "highlightField",
+        "testing"
+      ],
+      "renderedScenes": [
+        "intro",
+        "login",
+        "record_page",
+        "highlight_field",
+        "edit_picklist",
+        "save_toast",
+        "closing_testing_notes"
+      ]
     },
     "create_record_object_action": {
       "label": "Object-specific action: create related record",
-      "status": "cataloged_next",
+      "status": "implemented_generic_modal",
       "suggestedTemplate": "action_modal_create_record_template.html",
-      "notes": "Use same record shell and modal primitive. Different post-save visualization: related list count increments and new related card appears."
+      "notes": "Use same record shell and modal primitive. Different post-save visualization: related list count increments and new related card appears.",
+      "template": "templates/action_update_record_template.html",
+      "snapshotContract": [
+        "release",
+        "main",
+        "action",
+        "testing"
+      ],
+      "renderedScenes": [
+        "intro",
+        "login",
+        "record_page",
+        "highlight_action_button",
+        "action_modal",
+        "save_toast",
+        "post_save_record_state",
+        "closing_testing_notes"
+      ]
     },
     "screen_flow_action": {
       "label": "Button launches screen flow",
-      "status": "cataloged_next",
-      "notes": "Use the same action button primitive, but modal/body is a flow screen sequence with Next/Finish states."
+      "status": "implemented_generic_modal",
+      "notes": "Use the same action button primitive, but modal/body is a flow screen sequence with Next/Finish states.",
+      "template": "templates/action_update_record_template.html",
+      "snapshotContract": [
+        "release",
+        "main",
+        "action",
+        "testing"
+      ],
+      "renderedScenes": [
+        "intro",
+        "login",
+        "record_page",
+        "highlight_action_button",
+        "action_modal",
+        "save_toast",
+        "post_save_record_state",
+        "closing_testing_notes"
+      ]
     },
     "url_action": {
       "label": "Button opens URL or external system",

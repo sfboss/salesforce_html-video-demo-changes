@@ -7,6 +7,8 @@ Current implemented demos:
 ```text
 1. field_added_layout
 2. update_record_object_action
+3. create_record_object_action
+4. screen_flow_action
 ```
 
 ## Folder structure
@@ -34,6 +36,39 @@ sf_dynamic_training_mock_pack_actions/
 └── templates/
     ├── dynamic_salesforce_mock_template.html
     └── action_update_record_template.html
+```
+
+
+## Create an org-aware scenario with the wizard
+
+The new first-step workflow is story-first: choose the scenario, run-as alias, object, record, and fields, optionally refresh a compact org UI cache, then write a small config that the HTML builder already understands.
+
+```bash
+python3 scripts/org_ui_wizard.py \
+  --target-org claytonboss+seoboss@gmail.com \
+  --refresh-cache \
+  --output config/wizard_demo.json
+
+python3 scripts/build_mock_video_html.py \
+  --config config/wizard_demo.json \
+  --target-org claytonboss+seoboss@gmail.com \
+  --output outputs/wizard_demo.html
+```
+
+A static front-end planner is also available at `web/ui-planner.html`; it produces the same universal scenario JSON shape for quick copy/paste iteration.
+
+## Additional generic action-modal use cases
+
+```bash
+python3 scripts/build_mock_video_html.py \
+  --config config/create_related_record_action_demo.json \
+  --target-org claytonboss+seoboss@gmail.com \
+  --output outputs/create_related_record_action_demo.html
+
+python3 scripts/build_mock_video_html.py \
+  --config config/screen_flow_action_demo.json \
+  --target-org claytonboss+seoboss@gmail.com \
+  --output outputs/screen_flow_action_demo.html
 ```
 
 ## Generate the new object action demo offline

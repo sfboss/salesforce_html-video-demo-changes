@@ -1,0 +1,25 @@
+{
+  "api_version": "v61.0",
+  "org_alias": "claytonboss+seoboss@gmail.com",
+  "demo": {"id": "opp_create_follow_up_case", "type": "create_record_object_action"},
+  "record": {"object_api_name": "Opportunity", "record_id": "006000000000000AAA"},
+  "release": {
+    "title": "New action creates a follow-up case from the Opportunity page.",
+    "subtitle": "The mock shows users where the button lives, what values are captured, and what appears after save.",
+    "objectLabel": "Opportunity", "actionLabel": "Create Follow-up Case", "behavior": "Create related record",
+    "audience": "Sales support", "loginUser": "claytonboss+seoboss@gmail.com",
+    "closeTitle": "Related-record actions can use the same modal primitive.",
+    "closeSubtitle": "Only the scenario contract changes; the Lightning-style canvas remains reusable."
+  },
+  "header_fields": ["Opportunity.Account.Name", "Opportunity.CloseDate", "Opportunity.Amount"],
+  "record_fields": ["Opportunity.Name", "Opportunity.StageName", "Opportunity.NextStep", "Opportunity.Amount", "Opportunity.CloseDate"],
+  "action": {
+    "type": "create_record_object_action", "api_name": "Create_Follow_Up_Case", "label": "Create Follow-up Case",
+    "button_location": "record_highlights_panel", "summary": "Capture support context and create a related follow-up record.",
+    "fields": [
+      {"field": "Opportunity.NextStep", "label": "Support Handoff", "after": "Create onboarding follow-up case"},
+      {"field": "Opportunity.Description", "label": "Case Summary", "after": "Customer needs post-sale onboarding confirmation."}
+    ]
+  },
+  "testing": ["Button appears on the Opportunity highlights panel", "Modal captures the handoff details", "After-save state clearly shows the follow-up context"]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "0.1.0",
+  "defaultOrgAlias": "claytonboss+seoboss@gmail.com",
+  "workflow": [
+    "Pick the user story and scenario type.",
+    "Pick the run-as user / org alias.",
+    "Refresh or reuse the org UI cache.",
+    "Pick the target app, tab, object, record, and fields/actions from the cache.",
+    "Write a compact scenario config.",
+    "Generate a safe standalone HTML mock from the config and cached/org snapshot."
+  ],
+  "uiCache": {
+    "pathPattern": "outputs/org_ui_cache/{alias_slug}.json",
+    "ttlHours": 24,
+    "contains": [
+      "org identity and API version",
+      "available apps/tabs for the selected user context",
+      "object describe summaries",
+      "field labels, types, picklist values, and updateability",
+      "compact layout hints suitable for a Lightning-style canvas"
+    ]
+  },
+  "scenarios": {
+    "field_added_layout": {
+      "label": "Field added to a page layout",
+      "rendererFamily": "record_canvas_with_side_panel",
+      "needs": ["story", "target user", "object", "record id", "field to highlight", "panel placement"]
+    },
+    "update_record_object_action": {
+      "label": "Object action updates fields",
+      "rendererFamily": "record_canvas_with_action_modal",
+      "needs": ["story", "target user", "object", "record id", "action label", "fields and after values"]
+    },
+    "create_record_object_action": {
+      "label": "Object action creates a related record",
+      "rendererFamily": "record_canvas_with_action_modal",
+      "needs": ["story", "target user", "parent object", "record id", "related object", "create fields"]
+    },
+    "screen_flow_action": {
+      "label": "Button launches a guided screen flow",
+      "rendererFamily": "record_canvas_with_action_modal",
+      "needs": ["story", "target user", "object", "record id", "flow label", "screen prompts"]
+    }
+  }
+}
