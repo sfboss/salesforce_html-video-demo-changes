@@ -1,0 +1,21 @@
+{
+  "registryVersion": "0.2.0",
+  "demos": [
+    {
+      "id": "field_added_account_health_score",
+      "type": "field_added_layout",
+      "config": "config/field_added_demo.json",
+      "template": "templates/dynamic_salesforce_mock_template.html",
+      "sample": "samples/account_opportunity_mock_data.json",
+      "durationSeconds": 45
+    },
+    {
+      "id": "opp_mark_at_risk_action",
+      "type": "update_record_object_action",
+      "config": "config/action_update_record_demo.json",
+      "template": "templates/action_update_record_template.html",
+      "sample": "samples/action_update_record_mock_data.json",
+      "durationSeconds": 48
+    }
+  ]
+}

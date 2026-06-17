@@ -1,0 +1,61 @@
+{
+  "release": {
+    "title": "New field added to the Account Details panel.",
+    "subtitle": "Generated from an org-aware template: record values, field labels, and picklist values become a tailored release-training clip.",
+    "objectLabel": "Opportunity → Account",
+    "change": "Layout field added",
+    "userSees": "Customer Health Score",
+    "loginUser": "training.user@example.com",
+    "closeTitle": "Personalized release training without live screen capture.",
+    "closeSubtitle": "Use one JSON config per feature: intro story, record context, demo field, picklist values, and testing notes."
+  },
+  "main": {
+    "objectApiName": "Opportunity",
+    "label": "Opportunity",
+    "name": "Anderson's Heating AC & Plumb-New Oppty",
+    "icon": "O",
+    "header": [
+      {"label":"Account Name","value":"Anderson's Heating AC & Plumb"},
+      {"label":"Close Date","value":"2021-08-30"},
+      {"label":"Amount","value":"$15,000.00"},
+      {"label":"Opportunity Owner","value":"Heather Rinke"}
+    ],
+    "fields": [
+      {"label":"Opportunity Owner","apiName":"Owner.Name","value":"Heather Rinke"},
+      {"label":"Amount","apiName":"Amount","value":"$15,000.00"},
+      {"label":"Private","apiName":"IsPrivate","value":"☐"},
+      {"label":"Expected Revenue","apiName":"ExpectedRevenue","value":"$11,250.00"},
+      {"label":"Opportunity Name","apiName":"Name","value":"Anderson's Heating AC & Plumb-New Oppty"},
+      {"label":"Close Date","apiName":"CloseDate","value":"2021-08-30"},
+      {"label":"Account Name","apiName":"Account.Name","value":"Anderson's Heating AC & Plumb"},
+      {"label":"Next Step","apiName":"NextStep","value":""},
+      {"label":"Type","apiName":"Type","value":""},
+      {"label":"Stage","apiName":"StageName","value":"Proposal/Price Quote"},
+      {"label":"Lead Source","apiName":"LeadSource","value":"Website"},
+      {"label":"Probability (%)","apiName":"Probability","value":"75%"}
+    ]
+  },
+  "side": {
+    "objectApiName": "Account",
+    "label": "Account",
+    "title": "Account Details",
+    "icon": "A",
+    "fields": [
+      {"label":"Customer Health Score","apiName":"Customer_Health_Score__c","value":"Green","isNew":true,"picklistValues":["Green","Yellow","Red","Unknown"]},
+      {"label":"Account Name","apiName":"Name","value":"Anderson's Heating AC & Plumb"},
+      {"label":"Type","apiName":"Type","value":""},
+      {"label":"Industry","apiName":"Industry","value":"Communications"},
+      {"label":"Phone","apiName":"Phone","value":"(700) 555-8801"},
+      {"label":"Annual Revenue","apiName":"AnnualRevenue","value":"$18,000,000"},
+      {"label":"Website","apiName":"Website","value":"andersonsheatingacplumb.example"},
+      {"label":"Billing Address","apiName":"BillingAddress","value":"632 US Highway 46\nFairfield NJ 07004\nUSA"}
+    ]
+  },
+  "highlightField": "Customer_Health_Score__c",
+  "testing": [
+    "Field appears in the Account Details panel above the fold",
+    "Picklist options match the target record type",
+    "Existing users can edit and save from the record page",
+    "Regression check: Opportunity path and related cards still render"
+  ]
+}

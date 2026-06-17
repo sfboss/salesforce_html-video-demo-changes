@@ -1,0 +1,45 @@
+{
+  "catalogVersion": "0.2.0",
+  "actionTypes": {
+    "update_record_object_action": {
+      "label": "Object-specific action: update record",
+      "status": "implemented",
+      "template": "templates/action_update_record_template.html",
+      "snapshotContract": ["release", "main", "action", "testing"],
+      "requiredConfig": [
+        "demo.type",
+        "record.object_api_name",
+        "record.record_id",
+        "action.api_name",
+        "action.label",
+        "action.fields[].field",
+        "action.fields[].after"
+      ],
+      "renderedScenes": ["intro", "login", "record_page", "highlight_action_button", "action_modal", "save_toast", "post_save_record_state", "closing_testing_notes"],
+      "dataNotes": "Action fields are direct fields on the target object. Relationship fields are supported in header_fields and record_fields, but not as update targets."
+    },
+    "field_added_layout": {
+      "label": "Layout change: field added above the fold",
+      "status": "implemented",
+      "template": "templates/dynamic_salesforce_mock_template.html",
+      "snapshotContract": ["release", "main", "side", "highlightField", "testing"],
+      "renderedScenes": ["intro", "login", "record_page", "highlight_field", "edit_picklist", "save_toast", "closing_testing_notes"]
+    },
+    "create_record_object_action": {
+      "label": "Object-specific action: create related record",
+      "status": "cataloged_next",
+      "suggestedTemplate": "action_modal_create_record_template.html",
+      "notes": "Use same record shell and modal primitive. Different post-save visualization: related list count increments and new related card appears."
+    },
+    "screen_flow_action": {
+      "label": "Button launches screen flow",
+      "status": "cataloged_next",
+      "notes": "Use the same action button primitive, but modal/body is a flow screen sequence with Next/Finish states."
+    },
+    "url_action": {
+      "label": "Button opens URL or external system",
+      "status": "cataloged_next",
+      "notes": "Use same top-right button primitive, then render a browser/tab transition or integration visualization."
+    }
+  }
+}

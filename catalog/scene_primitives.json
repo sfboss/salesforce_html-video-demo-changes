@@ -1,0 +1,13 @@
+{
+  "catalogVersion": "0.2.0",
+  "primitives": {
+    "intro": {"purpose": "Tell the release story before the UI appears", "inputs": ["release.title", "release.subtitle", "release.objectLabel", "release.actionLabel"]},
+    "login": {"purpose": "Orient users with a recognizable but synthetic login transition", "inputs": ["release.loginUser"]},
+    "record_page": {"purpose": "Render reusable CRM shell, highlights panel, detail fields, and related card column", "inputs": ["main.label", "main.name", "main.header", "main.fields"]},
+    "highlight_action_button": {"purpose": "Show the newly added top-right action with pointer/callout", "inputs": ["action.label", "action.buttonLocation"]},
+    "action_modal": {"purpose": "Render configured action fields with before/after values", "inputs": ["action.fields"]},
+    "save_toast": {"purpose": "Visualize the transaction result", "inputs": ["action.label", "main.label"]},
+    "post_save_record_state": {"purpose": "Show updated field values in the detail panel", "inputs": ["action.fields[].after"]},
+    "closing_testing_notes": {"purpose": "End the clip with release/test details", "inputs": ["testing[]", "release.closeTitle", "release.closeSubtitle"]}
+  }
+}

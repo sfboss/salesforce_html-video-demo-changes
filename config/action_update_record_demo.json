@@ -1,0 +1,69 @@
+{
+  "api_version": "v61.0",
+  "org_alias": "my-sandbox",
+  "demo": {
+    "id": "opp_mark_at_risk_action",
+    "type": "update_record_object_action",
+    "template": "action_update_record_template",
+    "catalog_action_type": "update_record_object_action"
+  },
+  "record": {
+    "object_api_name": "Opportunity",
+    "record_id": "006000000000000AAA"
+  },
+  "release": {
+    "title": "New object action added to the Opportunity page.",
+    "subtitle": "Users can now click Mark At Risk from the top-right action area, update the record, and see the refreshed values without leaving the page.",
+    "objectLabel": "Opportunity",
+    "actionLabel": "Mark At Risk",
+    "behavior": "Update record",
+    "audience": "Sales managers",
+    "loginUser": "training.user@example.com",
+    "closeTitle": "Action demos become JSON, not one-off videos.",
+    "closeSubtitle": "The same template can demo buttons, update fields, save behavior, validation messaging, and after-save state from a safe org snapshot."
+  },
+  "header_fields": [
+    "Opportunity.Account.Name",
+    "Opportunity.CloseDate",
+    "Opportunity.Amount",
+    "Opportunity.Owner.Name"
+  ],
+  "record_fields": [
+    "Opportunity.Name",
+    "Opportunity.StageName",
+    "Opportunity.Amount",
+    "Opportunity.NextStep",
+    "Opportunity.CloseDate",
+    "Opportunity.Probability",
+    "Opportunity.LeadSource",
+    "Opportunity.Description"
+  ],
+  "action": {
+    "type": "UpdateRecord",
+    "api_name": "Mark_At_Risk",
+    "label": "Mark At Risk",
+    "button_location": "record_highlights_panel",
+    "summary": "Use this action when an opportunity needs manager attention before the next forecast call.",
+    "fields": [
+      {
+        "field": "Opportunity.StageName",
+        "after": "Negotiation/Review"
+      },
+      {
+        "field": "Opportunity.NextStep",
+        "after": "Schedule manager review"
+      },
+      {
+        "field": "Opportunity.Description",
+        "label": "Risk Note",
+        "after": "Customer requested discount approval before signature."
+      }
+    ]
+  },
+  "testing": [
+    "Button appears in the Opportunity highlights panel action area",
+    "Action modal contains the configured update fields",
+    "Save path shows the success toast and refreshed values",
+    "Regression check: existing record fields still render correctly"
+  ]
+}

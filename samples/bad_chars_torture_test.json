@@ -1,0 +1,91 @@
+{
+  "release": {
+    "title": "Apostrophe + quotes + HTML chars smoke test",
+    "subtitle": "Values include Anderson's, \"quoted text\", <tags>, ampersands &, emoji ✅, smart quotes “like this”, and literal </script> text.",
+    "objectLabel": "Opportunity → Account",
+    "change": "Field added safely",
+    "userSees": "No parse break",
+    "loginUser": "training.user+o'hara@example.com",
+    "closeTitle": "Bad-character JSON survived.",
+    "closeSubtitle": "The mock still renders because dynamic data is JSON, not executable JavaScript."
+  },
+  "main": {
+    "objectApiName": "Opportunity",
+    "label": "Opportunity",
+    "name": "O'Hara & Sons \"Expansion\" <Demo>",
+    "icon": "O",
+    "header": [
+      {
+        "label": "Account Name",
+        "value": "O'Hara & Sons"
+      },
+      {
+        "label": "Close Date",
+        "value": "2026-06-17"
+      },
+      {
+        "label": "Amount",
+        "value": "$15,000.00"
+      },
+      {
+        "label": "Opportunity Owner",
+        "value": "Dev User"
+      }
+    ],
+    "fields": [
+      {
+        "label": "Opportunity Name",
+        "apiName": "Name",
+        "value": "O'Hara & Sons \"Expansion\" <Demo>"
+      },
+      {
+        "label": "Description",
+        "apiName": "Description",
+        "value": "Contains ampersand &, angle <brackets>, quotes, apostrophe's, emoji ✅, and </script>."
+      },
+      {
+        "label": "Stage",
+        "apiName": "StageName",
+        "value": "Proposal/Price Quote"
+      }
+    ]
+  },
+  "side": {
+    "objectApiName": "Account",
+    "label": "Account",
+    "title": "Account Details",
+    "icon": "A",
+    "fields": [
+      {
+        "label": "Customer Health Score",
+        "apiName": "Customer_Health_Score__c",
+        "value": "Green & Ready",
+        "isNew": true,
+        "picklistValues": [
+          "Green & Ready",
+          "Yellow <Watch>",
+          "Red \"Escalate\"",
+          "O'Hara Review",
+          "Literal </script> option"
+        ]
+      },
+      {
+        "label": "Account Name",
+        "apiName": "Name",
+        "value": "O'Hara & Sons"
+      },
+      {
+        "label": "Billing Address",
+        "apiName": "BillingAddress",
+        "value": "123 Test St\nPittsburgh PA 15219\nUSA"
+      }
+    ]
+  },
+  "highlightField": "Customer_Health_Score__c",
+  "testing": [
+    "Apostrophe in record name does not break JavaScript",
+    "Literal </script> is escaped in JSON script block",
+    "HTML-like values render as text, not markup",
+    "Login scene holds for 9 seconds"
+  ]
+}

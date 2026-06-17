@@ -1,0 +1,55 @@
+{
+  "release": {
+    "title": "New object action added to the Opportunity page.",
+    "subtitle": "Users can now click Mark At Risk from the top-right action area, update the record, and see the refreshed values without leaving the page.",
+    "objectLabel": "Opportunity",
+    "actionLabel": "Mark At Risk",
+    "behavior": "Update record",
+    "audience": "Sales managers",
+    "loginUser": "training.user@example.com",
+    "closeTitle": "Action demos become JSON, not one-off videos.",
+    "closeSubtitle": "The same template can demo buttons, update fields, save behavior, validation messaging, and after-save state from a safe org snapshot."
+  },
+  "main": {
+    "objectApiName": "Opportunity",
+    "label": "Opportunity",
+    "pluralLabel": "Opportunities",
+    "name": "Anderson's Heating AC & Plumb-New Oppty",
+    "icon": "O",
+    "header": [
+      {"label": "Account Name", "value": "Anderson's Heating AC & Plumb"},
+      {"label": "Close Date", "value": "2026-08-30"},
+      {"label": "Amount", "value": "$15,000.00"},
+      {"label": "Owner", "value": "Heather Rinke"}
+    ],
+    "fields": [
+      {"label": "Opportunity Name", "apiName": "Name", "value": "Anderson's Heating AC & Plumb-New Oppty"},
+      {"label": "Stage", "apiName": "StageName", "value": "Proposal/Price Quote"},
+      {"label": "Amount", "apiName": "Amount", "value": "$15,000.00"},
+      {"label": "Risk Status", "apiName": "Risk_Status__c", "value": "Normal"},
+      {"label": "Next Step", "apiName": "NextStep", "value": "Send pricing package"},
+      {"label": "Close Date", "apiName": "CloseDate", "value": "2026-08-30"},
+      {"label": "Lead Source", "apiName": "LeadSource", "value": "Website"},
+      {"label": "Description", "apiName": "Description", "value": "Customer wants legal review before signature. Apostrophe test: buyer's timeline is tight."}
+    ]
+  },
+  "action": {
+    "type": "update_record_object_action",
+    "apiName": "Mark_At_Risk",
+    "label": "Mark At Risk",
+    "buttonLocation": "record_highlights_panel",
+    "summary": "Use this action when an opportunity needs manager attention before the next forecast call.",
+    "fields": [
+      {"label": "Risk Status", "apiName": "Risk_Status__c", "before": "Normal", "after": "At Risk", "picklistValues": ["Normal", "At Risk", "Blocked"]},
+      {"label": "Next Step", "apiName": "NextStep", "before": "Send pricing package", "after": "Schedule manager review"},
+      {"label": "Stage", "apiName": "StageName", "before": "Proposal/Price Quote", "after": "Negotiation/Review", "picklistValues": ["Prospecting", "Qualification", "Proposal/Price Quote", "Negotiation/Review", "Closed Won", "Closed Lost"]},
+      {"label": "Risk Note", "apiName": "Description", "before": "Customer wants legal review before signature.", "after": "Customer requested discount approval before signature. Also safe with <tags>, quotes, and literal </script> text."}
+    ]
+  },
+  "testing": [
+    "Button appears in the Opportunity highlights panel action area",
+    "Action modal contains the configured update fields",
+    "Save path shows the success toast and refreshed values",
+    "Regression check: existing record fields still render correctly"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "api_version": "v61.0",
+  "org_alias": "my-sandbox",
+  "record": {
+    "object_api_name": "Opportunity",
+    "record_id": "006000000000000AAA",
+    "lookup_field": "AccountId"
+  },
+  "release": {
+    "title": "New field added to the Account Details panel.",
+    "subtitle": "This training clip is generated from a real record snapshot, org field labels, and picklist metadata — then rendered as a safe mock UI.",
+    "objectLabel": "Opportunity → Account",
+    "change": "Layout field added",
+    "userSees": "Customer Health Score",
+    "loginUser": "training.user@example.com",
+    "closeTitle": "Personalized release training without screen-recording a live org.",
+    "closeSubtitle": "Record values, field labels, picklist values, and test notes are interpolated into a reusable CRM mock." 
+  },
+  "main_fields": [
+    "Opportunity.Owner.Name",
+    "Opportunity.Amount",
+    "Opportunity.IsPrivate",
+    "Opportunity.ExpectedRevenue",
+    "Opportunity.Name",
+    "Opportunity.CloseDate",
+    "Opportunity.Account.Name",
+    "Opportunity.NextStep",
+    "Opportunity.Type",
+    "Opportunity.StageName",
+    "Opportunity.LeadSource",
+    "Opportunity.Probability"
+  ],
+  "header_fields": [
+    "Opportunity.Account.Name",
+    "Opportunity.CloseDate",
+    "Opportunity.Amount",
+    "Opportunity.Owner.Name"
+  ],
+  "side_panel": {
+    "object_api_name": "Account",
+    "title": "Account Details",
+    "fields": [
+      "Account.Customer_Health_Score__c",
+      "Account.Name",
+      "Account.Type",
+      "Account.Industry",
+      "Account.Phone",
+      "Account.AnnualRevenue",
+      "Account.Website",
+      "Account.BillingAddress"
+    ],
+    "highlight_field": "Account.Customer_Health_Score__c"
+  },
+  "demo_story": {
+    "new_field_label": "Customer Health Score",
+    "placement": "Top of Account Details panel",
+    "save_value": "Green"
+  },
+  "testing": [
+    "Field appears in the Account Details panel above the fold",
+    "Picklist options match the target record type",
+    "Existing users can edit and save from the record page",
+    "Regression check: Opportunity path and related cards still render"
+  ]
+}
