@@ -1,0 +1,25 @@
+{
+  "api_version": "v61.0",
+  "org_alias": "claytonboss+seoboss@gmail.com",
+  "demo": {"id": "opp_guided_discount_review", "type": "screen_flow_action"},
+  "record": {"object_api_name": "Opportunity", "record_id": "006000000000000AAA"},
+  "release": {
+    "title": "New guided discount review flow on Opportunity.",
+    "subtitle": "Users launch a guided screen flow from the record and return to an updated, realistic Opportunity canvas.",
+    "objectLabel": "Opportunity", "actionLabel": "Request Discount Review", "behavior": "Launch screen flow",
+    "audience": "Account executives", "loginUser": "claytonboss+seoboss@gmail.com",
+    "closeTitle": "Flow demos fit the same story-first action contract.",
+    "closeSubtitle": "The renderer treats flow prompts as modal fields and highlights the resulting record state."
+  },
+  "header_fields": ["Opportunity.Account.Name", "Opportunity.CloseDate", "Opportunity.Amount"],
+  "record_fields": ["Opportunity.Name", "Opportunity.StageName", "Opportunity.Amount", "Opportunity.NextStep", "Opportunity.Probability"],
+  "action": {
+    "type": "screen_flow_action", "api_name": "Request_Discount_Review", "label": "Request Discount Review",
+    "button_location": "record_highlights_panel", "summary": "Guide sellers through justification before manager review.",
+    "fields": [
+      {"field": "Opportunity.NextStep", "label": "Flow Prompt", "after": "Manager review requested for discount approval"},
+      {"field": "Opportunity.Probability", "label": "Forecast Confidence", "after": "70"}
+    ]
+  },
+  "testing": ["Flow button is discoverable from the record page", "Guided prompts match the story", "Updated fields are visible after Finish"]
+}

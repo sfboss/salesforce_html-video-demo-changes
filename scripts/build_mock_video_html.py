@@ -7,6 +7,8 @@ Build standalone CRM-style training mock videos from either:
 Demo types currently supported:
 - field_added_layout
 - update_record_object_action
+- create_record_object_action
+- screen_flow_action
 
 Examples:
   python scripts/build_mock_video_html.py --sample samples/action_update_record_mock_data.json --output outputs/action_update_record_demo_sample.html
@@ -28,6 +30,7 @@ import requests
 ROOT = Path(__file__).resolve().parents[1]
 FIELD_ADDED_TEMPLATE = ROOT / "templates" / "dynamic_salesforce_mock_template.html"
 ACTION_TEMPLATE = ROOT / "templates" / "action_update_record_template.html"
+ACTION_MODAL_DEMO_TYPES = {"update_record_object_action", "create_record_object_action", "screen_flow_action"}
 DEFAULT_OUTPUT = ROOT / "outputs" / "generated_demo.html"
 
 
@@ -132,7 +135,7 @@ def choose_template(config: Optional[Dict[str, Any]], explicit_template: Optiona
     if explicit_template:
         return explicit_template
     if config:
-        return ACTION_TEMPLATE if demo_type(config) == "update_record_object_action" else FIELD_ADDED_TEMPLATE
+        return ACTION_TEMPLATE if demo_type(config) in ACTION_MODAL_DEMO_TYPES else FIELD_ADDED_TEMPLATE
     if sample_path and "action" in sample_path.name:
         return ACTION_TEMPLATE
     return FIELD_ADDED_TEMPLATE
@@ -407,7 +410,7 @@ def build_action_update_data(config: Dict[str, Any], record: Dict[str, Any], des
             "fields": record_rows,
         },
         "action": {
-            "type": "update_record_object_action",
+            "type": demo_type(config),
             "apiName": action_cfg.get("api_name") or action_cfg.get("apiName") or "Update_Record_Action",
             "label": action_cfg.get("label", "Update Record"),
             "buttonLocation": action_cfg.get("button_location", "record_highlights_panel"),
@@ -485,7 +488,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     sf = SalesforceClient(auth)
 
     typ = demo_type(config)
-    if typ == "update_record_object_action":
+    if typ in ACTION_MODAL_DEMO_TYPES:
         record, desc = collect_record_for_action(sf, config)
         data = build_action_update_data(config, record, desc)
     elif typ == "field_added_layout":

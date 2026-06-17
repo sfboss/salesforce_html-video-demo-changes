@@ -1,5 +1,5 @@
 {
-  "registryVersion": "0.2.0",
+  "registryVersion": "0.3.0",
   "demos": [
     {
       "id": "field_added_account_health_score",
@@ -15,6 +15,20 @@
       "config": "config/action_update_record_demo.json",
       "template": "templates/action_update_record_template.html",
       "sample": "samples/action_update_record_mock_data.json",
+      "durationSeconds": 48
+    },
+    {
+      "id": "opp_create_follow_up_case",
+      "type": "create_record_object_action",
+      "config": "config/create_related_record_action_demo.json",
+      "template": "templates/action_update_record_template.html",
+      "durationSeconds": 48
+    },
+    {
+      "id": "opp_guided_discount_review",
+      "type": "screen_flow_action",
+      "config": "config/screen_flow_action_demo.json",
+      "template": "templates/action_update_record_template.html",
       "durationSeconds": 48
     }
   ]
